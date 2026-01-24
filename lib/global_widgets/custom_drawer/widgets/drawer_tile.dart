@@ -14,10 +14,10 @@ class DrawerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: true,
-      contentPadding: EdgeInsets.zero,
-      leading: Icon(icon, color: AppColors.primaryColor),
-      title: Text(title, style: AppText.body.copyWith(fontSize: 16.sp)),
-      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+      contentPadding: EdgeInsets.fromLTRB(4, 2, 4, 2),
+      leading: Icon(icon, color: AppColors.primaryColor, size: 22),
+      title: Text(title, style: AppText.body.copyWith(fontSize: 13.sp)),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 13),
       onTap: onTap,
     );
   }

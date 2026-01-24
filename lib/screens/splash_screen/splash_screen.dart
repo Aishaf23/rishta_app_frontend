@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 7), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => SignupScreen(onTap: () { },)),
+        MaterialPageRoute(builder: (_) => SignupScreen(onTap: () {})),
       );
     });
   }
@@ -28,10 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
           Image.asset(
             'assets/background/background1.jpg',
             fit: BoxFit.cover,
+
+            // Image.asset('assets/background/app_logo.png', fit: BoxFit.cover),
           ),
           Center(
             child: Text(
-              'S',
+              'P',
               style: TextStyle(
                 fontSize: 180,
                 color: AppColors.white,

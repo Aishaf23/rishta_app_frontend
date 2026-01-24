@@ -52,7 +52,10 @@ class _EventCardState extends State<EventCard> {
     _time = DateFormat('hh:mm a').format(widget.startDate);
 
     _updateDuration();
-    _timer = Timer.periodic(const Duration(seconds: 1), (_) => _updateDuration());
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (_) => _updateDuration(),
+    );
   }
 
   void _updateDuration() {
@@ -136,11 +139,7 @@ class _EventCardState extends State<EventCard> {
                       ],
                     ),
                   ),
-                  Image.asset(
-                    widget.imgUrl,
-                    height: 140,
-                    fit: BoxFit.contain,
-                  ),
+                  Image.asset(widget.imgUrl, height: 140, fit: BoxFit.contain),
                 ],
               ),
             ),
@@ -173,14 +172,18 @@ class _EventCardState extends State<EventCard> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(_date,
-                            style: AppText.button.copyWith(
-                              color: AppColors.white,
-                            )),
-                        Text(_day,
-                            style: AppText.subheading.copyWith(
-                              color: AppColors.white,
-                            )),
+                        Text(
+                          _date,
+                          style: AppText.button.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
+                        Text(
+                          _day,
+                          style: AppText.subheading.copyWith(
+                            color: AppColors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -272,7 +275,7 @@ class _EventCardState extends State<EventCard> {
             /// Duration / Interested
             ListTile(
               dense: true,
-              tileColor: Colors.grey.shade300,
+              tileColor: Colors.grey.shade200,
               title: const Text("Interested"),
               trailing: ValueListenableBuilder<String>(
                 valueListenable: _duration,
@@ -288,17 +291,24 @@ class _EventCardState extends State<EventCard> {
 
             /// Footer
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Icon(Icons.grid_view),
-                  SizedBox(width: 3),
-                  Text("View more events"),
-                  SizedBox(width: 8),
-                  Icon(Icons.access_time),
-                  SizedBox(width: 3),
-                  Text("Event History"),
+                  Row(
+                    children: [
+                      Icon(Icons.grid_view, size: 20),
+                      SizedBox(width: 4),
+                      Text("View more events"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.access_time, size: 20),
+                      SizedBox(width: 4),
+                      Text("Event History"),
+                    ],
+                  ),
                 ],
               ),
             ),
