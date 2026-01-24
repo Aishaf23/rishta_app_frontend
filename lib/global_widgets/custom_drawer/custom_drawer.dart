@@ -78,34 +78,42 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.upload,
             title: 'Upgrade to Premium',
             onTap: () {
-              Provider.of<DashboardProvider>(context, listen: false)
-                  .updateSelectedIndex(4);
+              Provider.of<DashboardProvider>(
+                context,
+                listen: false,
+              ).updateSelectedIndex(4);
 
               Navigator.pop(context);
 
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => const DashboardPage()),
-                    (route) => false,
+                (route) => false,
               );
             },
           ),
 
           const SizedBox(height: 12),
-          Text("Discover Your Matches", style: AppText.subheading.copyWith(fontSize: 12.sp)),
+          Text(
+            "Discover Your Matches",
+            style: AppText.subheading.copyWith(fontSize: 13.sp),
+          ),
+          SizedBox(height: 4),
           DrawerTile(
             icon: Icons.person_search_outlined,
             title: 'Matches',
             onTap: () {
-              Provider.of<DashboardProvider>(context, listen: false)
-                  .updateSelectedIndex(1);
+              Provider.of<DashboardProvider>(
+                context,
+                listen: false,
+              ).updateSelectedIndex(1);
 
               Navigator.pop(context);
 
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => const DashboardPage()),
-                    (route) => false,
+                (route) => false,
               );
             },
           ),
@@ -113,15 +121,17 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.email_outlined,
             title: 'Inbox',
             onTap: () {
-              Provider.of<DashboardProvider>(context, listen: false)
-                  .updateSelectedIndex(2);
+              Provider.of<DashboardProvider>(
+                context,
+                listen: false,
+              ).updateSelectedIndex(2);
 
               Navigator.pop(context);
 
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => const DashboardPage()),
-                    (route) => false,
+                (route) => false,
               );
             },
           ),
@@ -129,20 +139,26 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.messenger_outline_rounded,
             title: 'Chat',
             onTap: () {
-              Provider.of<DashboardProvider>(context, listen: false)
-                  .updateSelectedIndex(3);
+              Provider.of<DashboardProvider>(
+                context,
+                listen: false,
+              ).updateSelectedIndex(3);
 
               Navigator.pop(context);
 
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => const DashboardPage()),
-                    (route) => false,
+                (route) => false,
               );
             },
           ),
           const SizedBox(height: 12),
-          Text("Options & Settings", style: AppText.subheading.copyWith(fontSize: 12.sp)),
+          Text(
+            "Options & Settings",
+            style: AppText.subheading.copyWith(fontSize: 13.sp),
+          ),
+          SizedBox(height: 4),
           DrawerTile(
             icon: Icons.perm_contact_cal_outlined,
             title: 'Partner Preferences',
@@ -218,11 +234,3 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-

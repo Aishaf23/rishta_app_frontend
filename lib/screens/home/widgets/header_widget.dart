@@ -39,7 +39,7 @@ class HeaderWidget extends StatelessWidget {
     return ClipPath(
       clipper: InwardArchClipper(),
       child: Container(
-        height: size.height * 0.35,
+        height: size.height * 0.32,
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
@@ -116,7 +116,7 @@ class HeaderWidget extends StatelessWidget {
                             ],
                           ],
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 2),
                         Row(
                           children: [
                             const Icon(
@@ -158,7 +158,7 @@ class HeaderWidget extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
 
             // Profile Stats Row
             Row(
@@ -169,7 +169,7 @@ class HeaderWidget extends StatelessWidget {
                 _StatItem(Icons.view_headline, "Views", "2.3k"),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
 
             // Action Buttons
             Row(

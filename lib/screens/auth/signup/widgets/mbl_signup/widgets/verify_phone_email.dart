@@ -48,7 +48,11 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
                   const SizedBox(height: 100),
 
                   const Center(
-                    child: Icon(Icons.verified_user_rounded, size: 80, color: AppColors.white),
+                    child: Icon(
+                      Icons.verified_user_rounded,
+                      size: 80,
+                      color: AppColors.white,
+                    ),
                   ),
 
                   const SizedBox(height: 30),
@@ -63,7 +67,10 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
 
                   const SizedBox(height: 30),
 
-                  Text("Email ID", style: AppText.subheading.copyWith(color: Colors.white)),
+                  Text(
+                    "Email ID",
+                    style: AppText.subheading.copyWith(color: Colors.white),
+                  ),
                   const SizedBox(height: 8),
 
                   // ✅ Email Field
@@ -76,8 +83,9 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
                       if (value == null || value.isEmpty) {
                         return "Email is required";
                       }
-                      if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                          .hasMatch(value)) {
+                      if (!RegExp(
+                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                      ).hasMatch(value)) {
                         return "Enter a valid email";
                       }
                       return null;
@@ -86,13 +94,19 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
 
                   const SizedBox(height: 20),
 
-                  Text("Mobile no.", style: AppText.subheading.copyWith(color: Colors.white)),
+                  Text(
+                    "Mobile no.",
+                    style: AppText.subheading.copyWith(color: Colors.white),
+                  ),
                   const SizedBox(height: 8),
 
                   Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white),
                           borderRadius: BorderRadius.circular(10),
@@ -101,18 +115,27 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
                           child: DropdownButton<String>(
                             dropdownColor: AppColors.mehroon,
                             value: countryCode,
-                            icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.white,
+                            ),
                             style: AppText.body.copyWith(color: Colors.white),
                             onChanged: (String? newValue) {
                               setState(() {
                                 countryCode = newValue!;
                               });
                             },
-                            items: countryCodes
-                                .map<DropdownMenuItem<String>>((String code) {
+                            items: countryCodes.map<DropdownMenuItem<String>>((
+                              String code,
+                            ) {
                               return DropdownMenuItem<String>(
                                 value: code,
-                                child: Text(code, style: AppText.body.copyWith(color: Colors.white)),
+                                child: Text(
+                                  code,
+                                  style: AppText.body.copyWith(
+                                    color: Colors.white,
+                                  ),
+                                ),
                               );
                             }).toList(),
                           ),
@@ -187,18 +210,22 @@ class _VerifyPhoneEmailState extends State<VerifyPhoneEmail> {
                         children: [
                           TextSpan(
                             text: " Privacy Policy ",
-                            style: AppText.button.copyWith(color: AppColors.black),
+                            style: AppText.button.copyWith(
+                              color: AppColors.black,
+                            ),
                           ),
                           const TextSpan(text: " and "),
                           TextSpan(
                             text: " T&C",
-                            style: AppText.button.copyWith(color: AppColors.black),
+                            style: AppText.button.copyWith(
+                              color: AppColors.black,
+                            ),
                           ),
                         ],
                       ),
                       textAlign: TextAlign.center,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
