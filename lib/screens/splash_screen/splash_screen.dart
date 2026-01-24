@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Image.asset('assets/background/background1.jpg', fit: BoxFit.cover),
           Center(
             child: Text(
-              'S',
+              'P',
               style: TextStyle(
                 fontSize: 180,
                 color: AppColors.white,

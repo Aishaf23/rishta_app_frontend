@@ -9,7 +9,6 @@ class MatchedMemberList extends StatelessWidget {
   final String listDescription;
   final Color color;
 
-
   const MatchedMemberList({
     super.key,
     required this.listName,
@@ -22,7 +21,8 @@ class MatchedMemberList extends StatelessWidget {
     //  Dummy data (later replace with API data)
     final members = [
       {
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image":
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
         "name": "Ayesha",
         "age": 20,
         "height": "5'4",
@@ -30,7 +30,8 @@ class MatchedMemberList extends StatelessWidget {
         "location": "Lahore, Pakistan",
       },
       {
-        "image": "https://images.unsplash.com/photo-1722354980566-ec247cb4f1a8?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "image":
+            "https://images.unsplash.com/photo-1722354980566-ec247cb4f1a8?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "name": "Ali",
         "age": 22,
         "height": "5'6",
@@ -38,7 +39,8 @@ class MatchedMemberList extends StatelessWidget {
         "location": "Karachi, Pakistan",
       },
       {
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+        "image":
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
         "name": "Hina",
         "age": 23,
         "height": "5'5",
@@ -46,7 +48,8 @@ class MatchedMemberList extends StatelessWidget {
         "location": "Islamabad, Pakistan",
       },
       {
-        "image": "https://images.unsplash.com/photo-1722354980566-ec247cb4f1a8?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "image":
+            "https://images.unsplash.com/photo-1722354980566-ec247cb4f1a8?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "name": "Umer",
         "age": 20,
         "height": "5'4",
@@ -54,7 +57,6 @@ class MatchedMemberList extends StatelessWidget {
         "location": "Lahore, Pakistan",
       },
     ];
-
 
     return Container(
       color: Colors.white,
@@ -66,20 +68,41 @@ class MatchedMemberList extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                listName,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primaryColor,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    listName,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                  Center(
+                    child: GestureDetector(
+                      child: Text(
+                        "See all",
+                        style: TextStyle(
+                          color: AppColors.info,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AllCardsPage(title: listName),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
               Text(
                 listDescription,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.black54,
-                ),
+                style: const TextStyle(fontSize: 14, color: Colors.black54),
               ),
             ],
           ),
@@ -108,15 +131,21 @@ class MatchedMemberList extends StatelessWidget {
               },
             ),
           ),
-          Divider(),
-          Center(
-            child: GestureDetector(
-              child: Text("See all", style: TextStyle(color:AppColors.info),),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> AllCardsPage(title: listName)));
-              },
-            ),
-          )
+
+          // Divider(),
+          // Center(
+          //   child: GestureDetector(
+          //     child: Text("See all", style: TextStyle(color: AppColors.info)),
+          //     onTap: () {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => AllCardsPage(title: listName),
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

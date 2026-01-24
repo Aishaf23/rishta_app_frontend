@@ -29,6 +29,7 @@ class _EditProfileCardState extends State<EditProfileCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.fromLTRB(12, 2, 12, 2),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
         side: const BorderSide(color: Colors.grey),
@@ -99,31 +100,25 @@ class _EditProfileCardState extends State<EditProfileCard> {
   }
 
   Widget _infoRow(String? label, String value) {
-    const textStyle = TextStyle(
-      height: 1.7,
-      wordSpacing: 2.1,
-    );
+    const textStyle = TextStyle(height: 1.7, wordSpacing: 2.1);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
       child: (label == null || label.trim().isEmpty)
           ? Text(value, style: textStyle)
           : Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 190,
-            child: Text(
-              "$label:",
-              style: textStyle.copyWith(fontWeight: FontWeight.w500),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 190,
+                  child: Text(
+                    "$label:",
+                    style: textStyle.copyWith(fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Expanded(child: Text(value, style: textStyle)),
+              ],
             ),
-          ),
-          Expanded(child: Text(value, style: textStyle)),
-        ],
-      ),
     );
   }
-
 }
-
-
