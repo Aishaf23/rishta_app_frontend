@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rishta_app/constants/color/app_color.dart';
 import '../auth/signup/view/signup_screen.dart';
+import '../auth/signup/view/sign_up_with_email.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -25,12 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            'assets/background/background1.jpg',
-            fit: BoxFit.cover,
-
-            // Image.asset('assets/background/app_logo.png', fit: BoxFit.cover),
-          ),
+          Image.asset('assets/background/background1.jpg', fit: BoxFit.cover),
           Center(
             child: Text(
               'P',

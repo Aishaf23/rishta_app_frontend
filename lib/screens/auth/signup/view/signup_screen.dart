@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rishta_app/constants/color/app_color.dart';
 import 'package:rishta_app/constants/text/app_text.dart';
 import 'package:rishta_app/global_widgets/auth/auth_background.dart';
+import 'package:rishta_app/screens/auth/login/login_screen.dart';
 import 'package:rishta_app/screens/auth/signup/widgets/mbl_signup/mbl_signup.dart';
 import 'package:rishta_app/screens/auth/signup/widgets/signup_buttons.dart';
+
+import 'loading_signup.dart';
+import 'sign_up_with_email.dart';
 
 class SignupScreen extends StatelessWidget {
   final VoidCallback onTap;
@@ -29,9 +33,7 @@ class SignupScreen extends StatelessWidget {
 
               Text(
                 "New to Shaadi.com?",
-                style: AppText.body.copyWith(
-                  color: AppColors.white,
-                ),
+                style: AppText.body.copyWith(color: AppColors.white),
               ),
 
               const SizedBox(height: 20),
@@ -39,7 +41,16 @@ class SignupScreen extends StatelessWidget {
               SignupButton(
                 icon: Icons.email_rounded,
                 text: "Sign Up with Email",
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    builder: (context) {
+                      return LoadingEmailSignUp();
+                    },
+                  );
+                },
               ),
 
               const SizedBox(height: 15),
@@ -74,22 +85,29 @@ class SignupScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Already have an account?   ",
-                    style: AppText.body.copyWith(
-                      color: AppColors.white,
-                    ),
+                    style: AppText.body.copyWith(color: AppColors.white),
                   ),
 
                   GestureDetector(
-                    onTap: onTap,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return LoginScreen();
+                          },
+                        ),
+                      );
+                    },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 7,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(50),
-                        border: Border.all(
-                          color: AppColors.white,
-                          width: 1,
-                        ),
+                        border: Border.all(color: AppColors.white, width: 1),
                       ),
                       child: const Text(
                         "Login",
@@ -112,4 +130,3 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
