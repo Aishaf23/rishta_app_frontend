@@ -3,13 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'token_services.dart';
 
 class ApiServices {
-  static const String baseUrl = 'http://localhost:8000/api';
+  static const String baseUrl = 'http://192.168.1.6:8000/api';
 
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: const Duration(seconds: 15),
-      receiveTimeout: const Duration(seconds: 15),
+      connectTimeout: const Duration(seconds: 60),
+      receiveTimeout: const Duration(seconds: 60),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -87,14 +87,34 @@ class ApiServices {
     required String name,
     required String email,
     required String password,
+    String? gender,
+    String? religion,
+    String? community,
+    String? livingIn,
+    String? mobile,
   }) async {
-    final response = await request(
-      'POST',
-      '/register',
-      data: {'name': name, 'email': email, 'password': password},
-    );
-
-    return response?.data;
+    try {
+      final response = await request(
+        "POST",
+        '/register',
+        data: {
+          'name': name,
+          'email': email,
+          'password': password,
+          'gender': gender,
+          'religion': religion,
+          'community': community,
+          'livingIn': livingIn,
+          'mobile': mobile,
+        },
+      );
+      print('API RESPONSE: ${response?.data}');
+    } on DioException catch (e) {
+      print('DIO ERROR: ${e.message}');
+      if (e.type == DioExceptionType.connectionTimeout) {
+        print('Connection timeout! Increase timeout in Dio.');
+      }
+    }
   }
 
   Future<Map<String, dynamic>?> login({

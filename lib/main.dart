@@ -5,6 +5,8 @@ import 'package:rishta_app/screens/dashboard/dashboard_page.dart';
 import 'package:rishta_app/screens/dashboard/provider/provider.dart';
 import 'package:rishta_app/screens/splash_screen/splash_screen.dart';
 
+import 'screens/auth/signup/view/sign_up_with_email.dart';
+
 void main() {
   runApp(const MyApp());
 }
